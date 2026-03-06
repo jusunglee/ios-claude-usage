@@ -6,19 +6,24 @@ enum KeychainHelper {
     private static let accessGroup = "com.juicebox.claudeusage.shared"
     private static let sessionKeyAccount = "sessionKey"
 
-    static func saveSessionKey(_ key: String) -> Bool {
-        guard let data = key.data(using: .utf8) else { return false }
-
-        let query: [String: Any] = [
+    private static var baseQuery: [String: Any] {
+        var query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: service,
             kSecAttrAccount as String: sessionKeyAccount,
-            kSecAttrAccessGroup as String: accessGroup,
         ]
+        #if !targetEnvironment(simulator)
+        query[kSecAttrAccessGroup as String] = accessGroup
+        #endif
+        return query
+    }
 
-        SecItemDelete(query as CFDictionary)
+    static func saveSessionKey(_ key: String) -> Bool {
+        guard let data = key.data(using: .utf8) else { return false }
 
-        var addQuery = query
+        SecItemDelete(baseQuery as CFDictionary)
+
+        var addQuery = baseQuery
         addQuery[kSecValueData as String] = data
         addQuery[kSecAttrAccessible as String] = kSecAttrAccessibleAfterFirstUnlock
 
@@ -27,14 +32,9 @@ enum KeychainHelper {
     }
 
     static func loadSessionKey() -> String? {
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: service,
-            kSecAttrAccount as String: sessionKeyAccount,
-            kSecAttrAccessGroup as String: accessGroup,
-            kSecReturnData as String: true,
-            kSecMatchLimit as String: kSecMatchLimitOne,
-        ]
+        var query = baseQuery
+        query[kSecReturnData as String] = true
+        query[kSecMatchLimit as String] = kSecMatchLimitOne
 
         var result: AnyObject?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
@@ -44,14 +44,7 @@ enum KeychainHelper {
     }
 
     static func deleteSessionKey() -> Bool {
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: service,
-            kSecAttrAccount as String: sessionKeyAccount,
-            kSecAttrAccessGroup as String: accessGroup,
-        ]
-
-        let status = SecItemDelete(query as CFDictionary)
+        let status = SecItemDelete(baseQuery as CFDictionary)
         return status == errSecSuccess || status == errSecItemNotFound
     }
 }

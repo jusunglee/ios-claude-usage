@@ -109,6 +109,7 @@ enum UsageService {
 
     private static func checkResponse(_ response: URLResponse) throws {
         guard let http = response as? HTTPURLResponse else { return }
+        print("[DEBUG] HTTP \(http.statusCode) from \(http.url?.absoluteString ?? "?")")
         if http.statusCode == 401 || http.statusCode == 403 {
             // Clear cached org ID on auth failure
             sharedDefaults?.removeObject(forKey: "orgID")

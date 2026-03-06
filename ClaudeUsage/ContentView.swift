@@ -47,6 +47,17 @@ struct ContentView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40)
 
+            VStack(alignment: .leading, spacing: 8) {
+                Text("How to get your session key:")
+                    .font(.subheadline.bold())
+                instructionRow(number: "1", text: "Open claude.ai in your browser and log in")
+                instructionRow(number: "2", text: "Open DevTools (⌘⌥I)")
+                instructionRow(number: "3", text: "Go to Application → Cookies → claude.ai")
+                instructionRow(number: "4", text: "Copy the value of sessionKey")
+            }
+            .padding()
+            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
+
             TextField("sk-ant-sid01-...", text: $sessionKey)
                 .textFieldStyle(.roundedBorder)
                 .font(.system(.body, design: .monospaced))
@@ -56,10 +67,15 @@ struct ContentView: View {
 
             Button("Save & Connect") {
                 guard !sessionKey.isEmpty else { return }
-                if KeychainHelper.saveSessionKey(sessionKey.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                let trimmed = sessionKey.trimmingCharacters(in: .whitespacesAndNewlines)
+                let saved = KeychainHelper.saveSessionKey(trimmed)
+                print("[DEBUG] Save result: \(saved), key length: \(trimmed.count)")
+                if saved {
                     hasKey = true
                     sessionKey = ""
                     refresh()
+                } else {
+                    error = "Failed to save session key to Keychain"
                 }
             }
             .buttonStyle(.borderedProminent)
@@ -128,12 +144,27 @@ struct ContentView: View {
         isLoading = true
         error = nil
         do {
+            print("[DEBUG] Fetching usage...")
             usage = try await UsageService.fetchUsage()
+            print("[DEBUG] Fetch succeeded: \(usage!)")
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
+            print("[DEBUG] Fetch failed: \(error)")
             self.error = error.localizedDescription
         }
         isLoading = false
+    }
+
+    private func instructionRow(number: String, text: String) -> some View {
+        HStack(alignment: .top, spacing: 8) {
+            Text(number)
+                .font(.caption.bold())
+                .frame(width: 18, height: 18)
+                .background(.blue.opacity(0.2), in: Circle())
+            Text(text)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
     }
 
     private func signOut() {

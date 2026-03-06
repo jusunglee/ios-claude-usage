@@ -50,6 +50,7 @@
 		3DDB3669F215EFC0C1958C20 /* ClaudeUsage.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClaudeUsage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		428543A5F596812197CD22A2 /* ClaudeUsageWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClaudeUsageWidgetExtension.entitlements; sourceTree = "<group>"; };
 		56AE47E14C47872F3C4A9FA6 /* ClaudeUsage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClaudeUsage.entitlements; sourceTree = "<group>"; };
+		65765DD391C78C03A66D97CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B868097107DCE8EB89C4B0CE /* UsageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageService.swift; sourceTree = "<group>"; };
 		C4794C4204E28CFD0576A116 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C559C982F1E62C937D2E0D3D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 			children = (
 				C9F914AA7275DBAA59C0BCBD /* ClaudeUsageWidget.swift */,
 				428543A5F596812197CD22A2 /* ClaudeUsageWidgetExtension.entitlements */,
+				65765DD391C78C03A66D97CD /* Info.plist */,
 			);
 			path = ClaudeUsageWidget;
 			sourceTree = "<group>";
@@ -343,6 +345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ClaudeUsage/ClaudeUsage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -361,6 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ClaudeUsage/ClaudeUsage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -378,7 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = ClaudeUsageWidget/ClaudeUsageWidgetExtension.entitlements;
-				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.widgetkit-extension";
+				INFOPLIST_FILE = ClaudeUsageWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -395,7 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = ClaudeUsageWidget/ClaudeUsageWidgetExtension.entitlements;
-				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.widgetkit-extension";
+				INFOPLIST_FILE = ClaudeUsageWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -15,6 +15,7 @@ targets:
       - path: ClaudeUsage
       - path: Shared
     settings:
+      GENERATE_INFOPLIST_FILE: YES
       INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
       INFOPLIST_KEY_UILaunchScreen_Generation: YES
       PRODUCT_BUNDLE_IDENTIFIER: com.juicebox.claudeusage
@@ -35,8 +36,8 @@ targets:
       - path: ClaudeUsageWidget
       - path: Shared
     settings:
+      INFOPLIST_FILE: ClaudeUsageWidget/Info.plist
       PRODUCT_BUNDLE_IDENTIFIER: com.juicebox.claudeusage.widget
-      INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: com.apple.widgetkit-extension
       ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME: WidgetBackground
     entitlements:
       path: ClaudeUsageWidget/ClaudeUsageWidgetExtension.entitlements
