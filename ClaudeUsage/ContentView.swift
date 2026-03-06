@@ -144,12 +144,9 @@ struct ContentView: View {
         isLoading = true
         error = nil
         do {
-            print("[DEBUG] Fetching usage...")
             usage = try await UsageService.fetchUsage()
-            print("[DEBUG] Fetch succeeded: \(usage!)")
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
-            print("[DEBUG] Fetch failed: \(error)")
             self.error = error.localizedDescription
         }
         isLoading = false

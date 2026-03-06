@@ -12,6 +12,8 @@
 		3C4E7AC624F88306FAE0EE16 /* UsageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868097107DCE8EB89C4B0CE /* UsageService.swift */; };
 		46217628552499310B0F81C3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E86351762BC954A07DAE5F /* Models.swift */; };
 		50EDBAA93D7FC88F610EAFA3 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559C982F1E62C937D2E0D3D /* KeychainHelper.swift */; };
+		63ABEA7D7E9DF5C3968A5C15 /* CloudflareSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00841CB3B025BC89A12A8AA5 /* CloudflareSolver.swift */; };
+		6DCAAD4360CDCFFA264A1A43 /* CloudflareSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00841CB3B025BC89A12A8AA5 /* CloudflareSolver.swift */; };
 		79D87AAD05F9DE8949A89E5B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4794C4204E28CFD0576A116 /* ContentView.swift */; };
 		7A2DFC1A09FB520E09CDE2BA /* ClaudeUsageWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 250064F1475E2F3077E3F4DA /* ClaudeUsageWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9990CF61FBA858078D009259 /* ClaudeUsageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F914AA7275DBAA59C0BCBD /* ClaudeUsageWidget.swift */; };
@@ -44,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00841CB3B025BC89A12A8AA5 /* CloudflareSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudflareSolver.swift; sourceTree = "<group>"; };
 		250064F1475E2F3077E3F4DA /* ClaudeUsageWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ClaudeUsageWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E86351762BC954A07DAE5F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		3565020420A3194DAE75414D /* ClaudeUsageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeUsageApp.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		65471DFB72CD62D0BD13839B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				00841CB3B025BC89A12A8AA5 /* CloudflareSolver.swift */,
 				C559C982F1E62C937D2E0D3D /* KeychainHelper.swift */,
 				32E86351762BC954A07DAE5F /* Models.swift */,
 				B868097107DCE8EB89C4B0CE /* UsageService.swift */,
@@ -189,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A41A9BA42494061FF681C1BE /* ClaudeUsageApp.swift in Sources */,
+				6DCAAD4360CDCFFA264A1A43 /* CloudflareSolver.swift in Sources */,
 				79D87AAD05F9DE8949A89E5B /* ContentView.swift in Sources */,
 				D458B090F8EAD2E9AC06B9A0 /* KeychainHelper.swift in Sources */,
 				46217628552499310B0F81C3 /* Models.swift in Sources */,
@@ -201,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9990CF61FBA858078D009259 /* ClaudeUsageWidget.swift in Sources */,
+				63ABEA7D7E9DF5C3968A5C15 /* CloudflareSolver.swift in Sources */,
 				50EDBAA93D7FC88F610EAFA3 /* KeychainHelper.swift in Sources */,
 				120956C29E1E01D98A42E9E5 /* Models.swift in Sources */,
 				3C4E7AC624F88306FAE0EE16 /* UsageService.swift in Sources */,

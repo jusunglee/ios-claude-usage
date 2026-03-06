@@ -16,3 +16,6 @@ xcuserdata/
 
 # Claude
 .claude/
+
+# Secrets
+.session-key
