@@ -1,0 +1,47 @@
+name: ClaudeUsage
+options:
+  bundleIdPrefix: com.juicebox
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "16.0"
+settings:
+  SWIFT_VERSION: "5.9"
+  DEVELOPMENT_TEAM: ""
+targets:
+  ClaudeUsage:
+    type: application
+    platform: iOS
+    sources:
+      - path: ClaudeUsage
+      - path: Shared
+    settings:
+      INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+      INFOPLIST_KEY_UILaunchScreen_Generation: YES
+      PRODUCT_BUNDLE_IDENTIFIER: com.juicebox.claudeusage
+    entitlements:
+      path: ClaudeUsage/ClaudeUsage.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.juicebox.claudeusage
+        keychain-access-groups:
+          - $(AppIdentifierPrefix)com.juicebox.claudeusage.shared
+    dependencies:
+      - target: ClaudeUsageWidgetExtension
+  ClaudeUsageWidgetExtension:
+    type: app-extension
+    platform: iOS
+    product: ClaudeUsageWidgetExtension
+    sources:
+      - path: ClaudeUsageWidget
+      - path: Shared
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.juicebox.claudeusage.widget
+      INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: com.apple.widgetkit-extension
+      ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME: WidgetBackground
+    entitlements:
+      path: ClaudeUsageWidget/ClaudeUsageWidgetExtension.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.juicebox.claudeusage
+        keychain-access-groups:
+          - $(AppIdentifierPrefix)com.juicebox.claudeusage.shared
