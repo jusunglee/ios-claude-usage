@@ -145,6 +145,75 @@ struct UsageRing: View {
     }
 }
 
+// MARK: - Lock Screen Widgets
+
+struct AccessoryCircularView: View {
+    let entry: UsageEntry
+
+    var body: some View {
+        if let usage = entry.usage {
+            Gauge(value: usage.sessionWindow.utilizationPercent, in: 0...100) {
+                Text("S")
+            } currentValueLabel: {
+                Text("\(Int(usage.sessionWindow.utilizationPercent))")
+                    .font(.system(.body, design: .rounded, weight: .bold))
+            }
+            .gaugeStyle(.accessoryCircular)
+            .containerBackground(.fill.tertiary, for: .widget)
+        } else {
+            Image(systemName: "chart.bar.fill")
+                .containerBackground(.fill.tertiary, for: .widget)
+        }
+    }
+}
+
+struct AccessoryRectangularView: View {
+    let entry: UsageEntry
+
+    var body: some View {
+        if let usage = entry.usage {
+            VStack(alignment: .leading, spacing: 2) {
+                Label("Claude Usage", systemImage: "chart.bar.fill")
+                    .font(.system(size: 12, weight: .semibold))
+                    .widgetAccentable()
+
+                HStack(spacing: 8) {
+                    lockScreenBar(label: "Session", percent: usage.sessionWindow.utilizationPercent)
+                    lockScreenBar(label: "Weekly", percent: usage.weeklyUsage.utilizationPercent)
+                }
+            }
+            .containerBackground(.fill.tertiary, for: .widget)
+        } else {
+            Text("Open app to set up")
+                .font(.caption)
+                .containerBackground(.fill.tertiary, for: .widget)
+        }
+    }
+
+    private func lockScreenBar(label: String, percent: Double) -> some View {
+        VStack(alignment: .leading, spacing: 1) {
+            Text("\(label) \(Int(percent))%")
+                .font(.system(size: 10))
+            ProgressView(value: percent, total: 100)
+        }
+    }
+}
+
+struct AccessoryInlineView: View {
+    let entry: UsageEntry
+
+    var body: some View {
+        if let usage = entry.usage {
+            Label(
+                "Session \(Int(usage.sessionWindow.utilizationPercent))% | Weekly \(Int(usage.weeklyUsage.utilizationPercent))%",
+                systemImage: "chart.bar.fill"
+            )
+        } else {
+            Text("Claude: --")
+        }
+    }
+}
+
 // MARK: - Entry View Router
 
 struct WidgetEntryView: View {
@@ -155,6 +224,14 @@ struct WidgetEntryView: View {
         switch family {
         case .systemSmall:
             SmallWidgetView(entry: entry)
+        case .systemMedium:
+            MediumWidgetView(entry: entry)
+        case .accessoryCircular:
+            AccessoryCircularView(entry: entry)
+        case .accessoryRectangular:
+            AccessoryRectangularView(entry: entry)
+        case .accessoryInline:
+            AccessoryInlineView(entry: entry)
         default:
             MediumWidgetView(entry: entry)
         }
@@ -172,7 +249,13 @@ struct ClaudeUsageWidget: Widget {
         }
         .configurationDisplayName("Claude Usage")
         .description("Track your Claude usage limits.")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([
+            .systemSmall,
+            .systemMedium,
+            .accessoryCircular,
+            .accessoryRectangular,
+            .accessoryInline,
+        ])
     }
 }
 
@@ -192,6 +275,24 @@ struct ClaudeUsageWidgetBundle: WidgetBundle {
 }
 
 #Preview("Medium", as: .systemMedium) {
+    ClaudeUsageWidget()
+} timeline: {
+    UsageEntry.placeholder
+}
+
+#Preview("Circular", as: .accessoryCircular) {
+    ClaudeUsageWidget()
+} timeline: {
+    UsageEntry.placeholder
+}
+
+#Preview("Rectangular", as: .accessoryRectangular) {
+    ClaudeUsageWidget()
+} timeline: {
+    UsageEntry.placeholder
+}
+
+#Preview("Inline", as: .accessoryInline) {
     ClaudeUsageWidget()
 } timeline: {
     UsageEntry.placeholder
