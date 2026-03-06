@@ -96,6 +96,9 @@ struct ContentView: View {
                     if let opus = usage.opusWeekly {
                         UsageCard(title: "Opus Weekly", subtitle: "7-day Opus limit", window: opus)
                     }
+                    if let sonnet = usage.sonnetWeekly {
+                        UsageCard(title: "Sonnet Weekly", subtitle: "7-day Sonnet limit", window: sonnet)
+                    }
 
                     Text("Updated \(usage.fetchedAt.formatted(.relative(presentation: .named)))")
                         .font(.caption)

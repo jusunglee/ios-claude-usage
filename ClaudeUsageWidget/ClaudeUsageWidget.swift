@@ -84,6 +84,9 @@ struct MediumWidgetView: View {
                 if let opus = usage.opusWeekly {
                     UsageRing(label: "Opus", percent: opus.utilizationPercent, showReset: opus.timeUntilReset)
                 }
+                if let sonnet = usage.sonnetWeekly {
+                    UsageRing(label: "Sonnet", percent: sonnet.utilizationPercent, showReset: sonnet.timeUntilReset)
+                }
             }
             .frame(maxWidth: .infinity)
             .containerBackground(.fill.tertiary, for: .widget)

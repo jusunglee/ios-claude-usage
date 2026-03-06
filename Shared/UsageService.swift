@@ -171,22 +171,21 @@ enum UsageService {
 
     private static func mapResponse(_ response: UsageResponse) -> UsageData {
         let iso = ISO8601DateFormatter()
+        iso.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+
+        func parseWindow(_ w: UsageWindowResponse?) -> UsageWindow? {
+            guard let w else { return nil }
+            return UsageWindow(
+                utilizationPercent: w.utilization ?? 0,
+                resetsAt: w.resetsAt.flatMap { iso.date(from: $0) }
+            )
+        }
 
         return UsageData(
-            sessionWindow: UsageWindow(
-                utilizationPercent: response.fiveHour?.utilizationPercent ?? 0,
-                resetsAt: response.fiveHour?.resetsAt.flatMap { iso.date(from: $0) }
-            ),
-            weeklyUsage: UsageWindow(
-                utilizationPercent: response.sevenDay?.utilizationPercent ?? 0,
-                resetsAt: response.sevenDay?.resetsAt.flatMap { iso.date(from: $0) }
-            ),
-            opusWeekly: response.sevenDayOpus.map { opus in
-                UsageWindow(
-                    utilizationPercent: opus.utilizationPercent ?? 0,
-                    resetsAt: opus.resetsAt.flatMap { iso.date(from: $0) }
-                )
-            },
+            sessionWindow: parseWindow(response.fiveHour) ?? UsageWindow(utilizationPercent: 0, resetsAt: nil),
+            weeklyUsage: parseWindow(response.sevenDay) ?? UsageWindow(utilizationPercent: 0, resetsAt: nil),
+            opusWeekly: parseWindow(response.sevenDayOpus),
+            sonnetWeekly: parseWindow(response.sevenDaySonnet),
             fetchedAt: Date()
         )
     }

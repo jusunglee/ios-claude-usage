@@ -4,12 +4,14 @@ struct UsageData: Codable {
     let sessionWindow: UsageWindow
     let weeklyUsage: UsageWindow
     let opusWeekly: UsageWindow?
+    let sonnetWeekly: UsageWindow?
     let fetchedAt: Date
 
     static let placeholder = UsageData(
         sessionWindow: UsageWindow(utilizationPercent: 35, resetsAt: Date().addingTimeInterval(3600)),
         weeklyUsage: UsageWindow(utilizationPercent: 60, resetsAt: Date().addingTimeInterval(86400 * 3)),
-        opusWeekly: UsageWindow(utilizationPercent: 45, resetsAt: Date().addingTimeInterval(86400 * 3)),
+        opusWeekly: nil,
+        sonnetWeekly: UsageWindow(utilizationPercent: 45, resetsAt: Date().addingTimeInterval(86400 * 3)),
         fetchedAt: Date()
     )
 }
@@ -40,33 +42,25 @@ struct OrganizationResponse: Codable {
 }
 
 struct UsageResponse: Codable {
-    let fiveHour: FiveHourUsage?
-    let sevenDay: SevenDayUsage?
-    let sevenDayOpus: SevenDayUsage?
+    let fiveHour: UsageWindowResponse?
+    let sevenDay: UsageWindowResponse?
+    let sevenDayOpus: UsageWindowResponse?
+    let sevenDaySonnet: UsageWindowResponse?
 
     enum CodingKeys: String, CodingKey {
         case fiveHour = "five_hour"
         case sevenDay = "seven_day"
         case sevenDayOpus = "seven_day_opus"
+        case sevenDaySonnet = "seven_day_sonnet"
     }
 }
 
-struct FiveHourUsage: Codable {
-    let utilizationPercent: Double?
+struct UsageWindowResponse: Codable {
+    let utilization: Double?
     let resetsAt: String?
 
     enum CodingKeys: String, CodingKey {
-        case utilizationPercent = "utilization_percent"
-        case resetsAt = "resets_at"
-    }
-}
-
-struct SevenDayUsage: Codable {
-    let utilizationPercent: Double?
-    let resetsAt: String?
-
-    enum CodingKeys: String, CodingKey {
-        case utilizationPercent = "utilization_percent"
+        case utilization
         case resetsAt = "resets_at"
     }
 }
