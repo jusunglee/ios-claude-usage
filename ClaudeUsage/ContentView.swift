@@ -65,9 +65,17 @@ struct ContentView: View {
                 .textInputAutocapitalization(.never)
                 .padding(.horizontal)
 
+            if let error {
+                Text(error)
+                    .font(.caption)
+                    .foregroundStyle(.red)
+                    .padding(.horizontal)
+            }
+
             Button("Save & Connect") {
                 guard !sessionKey.isEmpty else { return }
                 let trimmed = sessionKey.trimmingCharacters(in: .whitespacesAndNewlines)
+                error = nil
                 let saved = KeychainHelper.saveSessionKey(trimmed)
                 print("[DEBUG] Save result: \(saved), key length: \(trimmed.count)")
                 if saved {
@@ -75,7 +83,7 @@ struct ContentView: View {
                     sessionKey = ""
                     refresh()
                 } else {
-                    error = "Failed to save session key to Keychain"
+                    error = "Failed to save to Keychain. Check signing/entitlements."
                 }
             }
             .buttonStyle(.borderedProminent)

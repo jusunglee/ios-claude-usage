@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		120956C29E1E01D98A42E9E5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E86351762BC954A07DAE5F /* Models.swift */; };
 		21BE0E2D9E8FE5DC8EBBA84B /* UsageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868097107DCE8EB89C4B0CE /* UsageService.swift */; };
+		231E84BEF7668D82562967B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D75CEE30D23C9C35B835D396 /* Assets.xcassets */; };
+		3B38D00AECD1CB061C6A57C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B19FA58D4EBD0747BED38BA9 /* Assets.xcassets */; };
 		3C4E7AC624F88306FAE0EE16 /* UsageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868097107DCE8EB89C4B0CE /* UsageService.swift */; };
 		46217628552499310B0F81C3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E86351762BC954A07DAE5F /* Models.swift */; };
 		50EDBAA93D7FC88F610EAFA3 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559C982F1E62C937D2E0D3D /* KeychainHelper.swift */; };
@@ -54,16 +56,19 @@
 		428543A5F596812197CD22A2 /* ClaudeUsageWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClaudeUsageWidgetExtension.entitlements; sourceTree = "<group>"; };
 		56AE47E14C47872F3C4A9FA6 /* ClaudeUsage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClaudeUsage.entitlements; sourceTree = "<group>"; };
 		65765DD391C78C03A66D97CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B19FA58D4EBD0747BED38BA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B868097107DCE8EB89C4B0CE /* UsageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageService.swift; sourceTree = "<group>"; };
 		C4794C4204E28CFD0576A116 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C559C982F1E62C937D2E0D3D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		C9F914AA7275DBAA59C0BCBD /* ClaudeUsageWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeUsageWidget.swift; sourceTree = "<group>"; };
+		D75CEE30D23C9C35B835D396 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		34443FCE744189F1F721EED9 /* ClaudeUsage */ = {
 			isa = PBXGroup;
 			children = (
+				B19FA58D4EBD0747BED38BA9 /* Assets.xcassets */,
 				56AE47E14C47872F3C4A9FA6 /* ClaudeUsage.entitlements */,
 				3565020420A3194DAE75414D /* ClaudeUsageApp.swift */,
 				C4794C4204E28CFD0576A116 /* ContentView.swift */,
@@ -85,6 +90,7 @@
 		6A49A5E722F1E24B804441DD /* ClaudeUsageWidget */ = {
 			isa = PBXGroup;
 			children = (
+				D75CEE30D23C9C35B835D396 /* Assets.xcassets */,
 				C9F914AA7275DBAA59C0BCBD /* ClaudeUsageWidget.swift */,
 				428543A5F596812197CD22A2 /* ClaudeUsageWidgetExtension.entitlements */,
 				65765DD391C78C03A66D97CD /* Info.plist */,
@@ -119,6 +125,7 @@
 			buildConfigurationList = 508E8FC0A30CD69A0F99CAE9 /* Build configuration list for PBXNativeTarget "ClaudeUsageWidgetExtension" */;
 			buildPhases = (
 				39A46597110ED2D13B4182A9 /* Sources */,
+				00D4F7F83351376F7FE94D44 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +143,7 @@
 			buildConfigurationList = 78FFC4369CA5357E81B68B17 /* Build configuration list for PBXNativeTarget "ClaudeUsage" */;
 			buildPhases = (
 				0879BCB003A66A2E5A5E923C /* Sources */,
+				93F8577ADA890DBFF21FF55F /* Resources */,
 				C61D794878352EA7E321BF49 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
@@ -160,10 +168,10 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					6E97C317F002EB5B78F6589D = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = 5228P2M8ED;
 					};
 					FCD643E83F9907C0D1AFF05E = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = 5228P2M8ED;
 					};
 				};
 			};
@@ -186,6 +194,25 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00D4F7F83351376F7FE94D44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				231E84BEF7668D82562967B5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93F8577ADA890DBFF21FF55F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B38D00AECD1CB061C6A57C5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0879BCB003A66A2E5A5E923C /* Sources */ = {
@@ -259,7 +286,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5228P2M8ED;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -323,7 +350,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5228P2M8ED;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -351,13 +378,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ClaudeUsage/ClaudeUsage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juicebox.claudeusage;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,13 +401,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ClaudeUsage/ClaudeUsage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juicebox.claudeusage;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -388,12 +423,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = ClaudeUsageWidget/ClaudeUsageWidgetExtension.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ClaudeUsageWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juicebox.claudeusage.widget;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -405,12 +442,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = ClaudeUsageWidget/ClaudeUsageWidgetExtension.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ClaudeUsageWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juicebox.claudeusage.widget;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
