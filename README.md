@@ -2,10 +2,18 @@
 
 A simple iOS widget that displays your Claude Pro/Team usage limits, inspired by [Claude Usage Tracker](https://github.com/hamed-elfayome/Claude-Usage-Tracker) for macOS.
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/app.jpeg" width="250" alt="Main app">
+  <img src="screenshots/widget.jpeg" width="250" alt="Home screen widget">
+  <img src="screenshots/lock-screen-widget.jpeg" width="250" alt="Lock screen widget">
+</p>
+
 ## Features
 
-- **Small widget**: Session (5h) and weekly usage as color-coded progress rings
-- **Medium widget**: Same + reset times and Opus-specific usage
+- **Home screen widget**: Session (5h) and weekly usage as color-coded progress rings
+- **Lock screen widget**: Compact usage ring for your lock screen
 - **Main app**: Paste your session key, view detailed usage, pull-to-refresh
 
 ## Setup
